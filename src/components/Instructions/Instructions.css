@@ -1,0 +1,19 @@
+.instructions-container {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 770px;
+    height: 1000px;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+.instructions-container h2 {
+    color: #333;
+    font-size: 50px;
+}
+
+.instructions-container p {
+    color: #666;
+    font-size: 30px;
+}
