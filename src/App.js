@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Card from './components/Card/Card';
-import Instructions from './components/Instructions/Instructions';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Container from './components/Container/Container';
+import { generateRandomNumber } from './utils/hooks';
 import './App.css'
 
 function App() {
   const [cards, setCards] = useState([]);
-
-  const generateRandomNumber = () => {
-    return Math.floor(Math.random() * 1000);
-  };
 
   useEffect(() => {
     fetchCards();
@@ -77,29 +75,9 @@ function App() {
 
   return (
     <div>
-      <header>
-        <button onClick={addCard}>Add Card</button>
-        <button onClick={sortCards}>Sort Cards</button>
-      </header>
-
-      <main>
-        <div className="card-container">
-          <div className="card-row">
-            {cards.map((card) => (
-              <Card key={card.id} card={card} onDelete={deleteCard} />
-            ))}
-          </div>
-        </div>
-        <div className="instructions">
-          <Instructions />
-        </div>
-      </main>
-
-      <footer className="footer">
-        <div className="footer-content">
-          <p>&copy;All rights reserved.</p>
-        </div>
-      </footer>
+      <Header addCard={addCard} sortCards={sortCards} />
+      <Container cards={cards} onDelete={deleteCard} />
+      <Footer />
     </div>
   );
 }
